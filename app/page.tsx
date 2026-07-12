@@ -5,6 +5,7 @@ import { FormEvent, useState } from "react";
 
 const artists = [
   {
+    slug: "lavkant-chaudhary",
     name: "Lavkant Chaudhary",
     origin: "Tharu",
     field: "Painting · Drawing · Installation",
@@ -13,6 +14,7 @@ const artists = [
     work: "/images/artworks/lavkant-work.jpg",
   },
   {
+    slug: "hit-man-gurung",
     name: "Hit Man Gurung",
     origin: "Tamu",
     field: "Painting · Mixed Media",
@@ -21,6 +23,7 @@ const artists = [
     work: "/images/artworks/herbs-drawings.jpg",
   },
   {
+    slug: "mekh-limbu",
     name: "Mekh Limbu",
     origin: "Yakthung",
     field: "Moving Image · Research",
@@ -29,6 +32,7 @@ const artists = [
     work: "/images/artworks/mekh-mangdemma.jpg",
   },
   {
+    slug: "sheelasha-rajbhandari",
     name: "Sheelasha Rajbhandari",
     origin: "Newa",
     field: "Sculpture · Performance · Installation",
@@ -36,7 +40,25 @@ const artists = [
     image: "/images/projects/not-less-expensive.jpg",
     work: "/images/artworks/ramkali-chaudhari.jpg",
   },
+  {
+    slug: "subas-tamang",
+    name: "Subas Tamang",
+    origin: "Tamang",
+    field: "Carving · Printmaking · Multimedia",
+    bio: "A Tamang artist who uses inherited carving skills, printmaking, and new technologies to archive histories that have gone undocumented.",
+    image: "/images/artists/subas-tamang.jpg",
+    work: "/images/artworks/subas-study.jpg",
+  },
 ];
+
+const artistSlugs: Record<string, string> = {
+  "Lavkant Chaudhary": "lavkant-chaudhary",
+  "Hit Man Gurung": "hit-man-gurung",
+  "Mekh Limbu": "mekh-limbu",
+  "Sheelasha Rajbhandari": "sheelasha-rajbhandari",
+  "Subas Tamang": "subas-tamang",
+  "ArTree Nepal": "sheelasha-rajbhandari",
+};
 
 const works = [
   ["Chotlung: traversing spirits, redemptive songs", "Mekh Limbu", "2025", "/images/artists/mekh-limbu.jpg", "Moving image"],
@@ -45,6 +67,7 @@ const works = [
   ["A language carried forward", "Lavkant Chaudhary", "2025", "/images/artworks/lavkant-work.jpg", "Mixed media"],
   ["Mangdem’ma", "Mekh Limbu", "2022", "/images/artworks/mekh-mangdemma.jpg", "Video & textile"],
   ["Herbs Drawings", "ArTree Nepal", "2024", "/images/artworks/herbs-drawings.jpg", "Drawing"],
+  ["Study of History", "Subas Tamang", "2024", "/images/artworks/subas-study.jpg", "Printmaking"],
 ];
 
 function Arrow() { return <span aria-hidden="true">↗</span>; }
@@ -94,12 +117,12 @@ export default function Home() {
 
       <section className="work-section" id="work">
         <div className="section-top"><div><div className="section-label">02 — From the archive</div><h2>Selected <i>work</i></h2></div><a className="text-link" href="#contact">View all projects <Arrow /></a></div>
-        <div className="work-grid">{works.map(([title, artist, year, image, type], index) => <article className={`work-card work-${index + 1}`} key={title}><a href="#contact" aria-label={`Enquire about ${title}`}><div className="work-image"><Image unoptimized src={image} alt={`${title} by ${artist}`} fill sizes="(max-width: 700px) 100vw, 33vw" /></div><div className="work-meta"><span>{artist}</span><span>{year}</span></div><h3>{title}</h3><p>{type}</p></a></article>)}</div>
+        <div className="work-grid">{works.map(([title, artist, year, image, type], index) => <article className={`work-card work-${index + 1}`} key={`${title}-${artist}`}><a href={`/artists/${artistSlugs[artist]}`} aria-label={`Open ${title} by ${artist}`}><div className="work-image"><Image unoptimized src={image} alt={`${title} by ${artist}`} fill sizes="(max-width: 700px) 100vw, 33vw" /></div><div className="work-meta"><span>{artist}</span><span>{year}</span></div><h3>{title}</h3><p>{type}</p></a></article>)}</div>
       </section>
 
       <section className="artists-section" id="artists">
         <div className="section-top"><div><div className="section-label">03 — The collective</div><h2>Meet the <i>artists</i></h2></div><p className="section-note">Five distinct practices, connected by a shared commitment to Indigenous knowledge and collective action.</p></div>
-        <div className="artists-grid">{artists.map((artist, index) => <article className="artist-card" key={artist.name}><a href="#contact"><div className="artist-image"><Image unoptimized src={artist.image} alt={artist.name} fill sizes="(max-width: 700px) 92vw, 25vw" /></div><div className="artist-index">0{index + 1}</div><div className="artist-info"><h3>{artist.name}</h3><p className="artist-field">{artist.origin} · {artist.field}</p><p>{artist.bio}</p><span className="card-link">Explore practice <Arrow /></span></div></a></article>)}</div>
+        <div className="artists-grid">{artists.map((artist, index) => <article className="artist-card" key={artist.name}><a href={`/artists/${artist.slug}`}><div className="artist-image"><Image unoptimized src={artist.image} alt={artist.name} fill sizes="(max-width: 700px) 92vw, 25vw" /></div><div className="artist-index">0{index + 1}</div><div className="artist-info"><h3>{artist.name}</h3><p className="artist-field">{artist.origin} · {artist.field}</p><p>{artist.bio}</p><span className="card-link">Explore practice <Arrow /></span></div></a></article>)}</div>
       </section>
 
       <section className="feature"><div className="feature-image"><Image unoptimized src="/images/projects/silent-portraits.jpg" alt="Silent Portraits from Doha, Qatar and Kathmandu Time Lapse" fill sizes="(max-width: 800px) 100vw, 52vw" /></div><div className="feature-copy"><div className="section-label">04 — Current focus</div><p className="feature-kicker">A work by Mekh Limbu</p><h2>Silent Portraits<br />from <i>Doha</i></h2><p>A three-channel video project tracing the intertwined journeys of Nepali migrant workers, from rural homes to the Gulf and back through memory.</p><a className="button button-outline" href="#contact">Read about the project <Arrow /></a></div></section>
