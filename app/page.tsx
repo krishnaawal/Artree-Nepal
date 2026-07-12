@@ -50,7 +50,7 @@ const works = [
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 
 function Logo({ small = false }: { small?: boolean }) {
-  return <Image className={small ? "logo logo-small" : "logo"} src="/images/site/artree-logo.png" alt="ArTree Nepal" width={small ? 44 : 72} height={small ? 44 : 72} />;
+  return <Image unoptimized className={small ? "logo logo-small" : "logo"} src="/images/site/artree-logo.png" alt="ArTree Nepal" width={small ? 44 : 72} height={small ? 44 : 72} />;
 }
 
 export default function Home() {
@@ -82,7 +82,7 @@ export default function Home() {
           <p className="hero-intro">ArTree Nepal is a collective of Indigenous artists making space for memory, resistance, and new ways of seeing.</p>
           <div className="hero-actions"><a className="button button-dark" href="#artists">Meet the artists <Arrow /></a><a className="text-link" href="#about">Discover our story <Arrow /></a></div>
         </div>
-        <div className="hero-image-wrap"><Image className="hero-image" src="/images/site/hero.webp" alt="Silam Sakma, an artwork from the ArTree Nepal archive" fill priority sizes="(max-width: 800px) 100vw, 52vw" /><div className="hero-caption"><span>01 / 04</span><span>Silam Sakma · archive view</span></div></div>
+        <div className="hero-image-wrap"><Image unoptimized className="hero-image" src="/images/site/hero.webp" alt="Silam Sakma, an artwork from the ArTree Nepal archive" fill priority sizes="(max-width: 800px) 100vw, 52vw" /><div className="hero-caption"><span>01 / 04</span><span>Silam Sakma · archive view</span></div></div>
         <div className="hero-mark">14<br /><small>years<br />of making</small></div>
       </section>
 
@@ -94,15 +94,15 @@ export default function Home() {
 
       <section className="work-section" id="work">
         <div className="section-top"><div><div className="section-label">02 — From the archive</div><h2>Selected <i>work</i></h2></div><a className="text-link" href="#contact">View all projects <Arrow /></a></div>
-        <div className="work-grid">{works.map(([title, artist, year, image, type], index) => <article className={`work-card work-${index + 1}`} key={title}><a href="#contact" aria-label={`Enquire about ${title}`}><div className="work-image"><Image src={image} alt={`${title} by ${artist}`} fill sizes="(max-width: 700px) 100vw, 33vw" /></div><div className="work-meta"><span>{artist}</span><span>{year}</span></div><h3>{title}</h3><p>{type}</p></a></article>)}</div>
+        <div className="work-grid">{works.map(([title, artist, year, image, type], index) => <article className={`work-card work-${index + 1}`} key={title}><a href="#contact" aria-label={`Enquire about ${title}`}><div className="work-image"><Image unoptimized src={image} alt={`${title} by ${artist}`} fill sizes="(max-width: 700px) 100vw, 33vw" /></div><div className="work-meta"><span>{artist}</span><span>{year}</span></div><h3>{title}</h3><p>{type}</p></a></article>)}</div>
       </section>
 
       <section className="artists-section" id="artists">
         <div className="section-top"><div><div className="section-label">03 — The collective</div><h2>Meet the <i>artists</i></h2></div><p className="section-note">Five distinct practices, connected by a shared commitment to Indigenous knowledge and collective action.</p></div>
-        <div className="artists-grid">{artists.map((artist, index) => <article className="artist-card" key={artist.name}><a href="#contact"><div className="artist-image"><Image src={artist.image} alt={artist.name} fill sizes="(max-width: 700px) 92vw, 25vw" /></div><div className="artist-index">0{index + 1}</div><div className="artist-info"><h3>{artist.name}</h3><p className="artist-field">{artist.origin} · {artist.field}</p><p>{artist.bio}</p><span className="card-link">Explore practice <Arrow /></span></div></a></article>)}</div>
+        <div className="artists-grid">{artists.map((artist, index) => <article className="artist-card" key={artist.name}><a href="#contact"><div className="artist-image"><Image unoptimized src={artist.image} alt={artist.name} fill sizes="(max-width: 700px) 92vw, 25vw" /></div><div className="artist-index">0{index + 1}</div><div className="artist-info"><h3>{artist.name}</h3><p className="artist-field">{artist.origin} · {artist.field}</p><p>{artist.bio}</p><span className="card-link">Explore practice <Arrow /></span></div></a></article>)}</div>
       </section>
 
-      <section className="feature"><div className="feature-image"><Image src="/images/projects/silent-portraits.jpg" alt="Silent Portraits from Doha, Qatar and Kathmandu Time Lapse" fill sizes="(max-width: 800px) 100vw, 52vw" /></div><div className="feature-copy"><div className="section-label">04 — Current focus</div><p className="feature-kicker">A work by Mekh Limbu</p><h2>Silent Portraits<br />from <i>Doha</i></h2><p>A three-channel video project tracing the intertwined journeys of Nepali migrant workers, from rural homes to the Gulf and back through memory.</p><a className="button button-outline" href="#contact">Read about the project <Arrow /></a></div></section>
+      <section className="feature"><div className="feature-image"><Image unoptimized src="/images/projects/silent-portraits.jpg" alt="Silent Portraits from Doha, Qatar and Kathmandu Time Lapse" fill sizes="(max-width: 800px) 100vw, 52vw" /></div><div className="feature-copy"><div className="section-label">04 — Current focus</div><p className="feature-kicker">A work by Mekh Limbu</p><h2>Silent Portraits<br />from <i>Doha</i></h2><p>A three-channel video project tracing the intertwined journeys of Nepali migrant workers, from rural homes to the Gulf and back through memory.</p><a className="button button-outline" href="#contact">Read about the project <Arrow /></a></div></section>
 
       <section className="contact-section" id="contact"><div className="contact-heading"><div className="section-label">05 — Say hello</div><h2>Let’s make room<br />for a <i>new story.</i></h2><p>For exhibitions, collaborations, research, or simply to learn more about ArTree Nepal, we’d love to hear from you.</p><div className="contact-details"><a href="mailto:artreenepal@gmail.com">artreenepal@gmail.com</a><a href="tel:+9779861626549">+977 986 162 6549</a><span>Samarpan Marg<br />Tripureshwor, Kathmandu</span></div></div><form className="contact-form" onSubmit={submitForm}><label>Your name<input name="name" required placeholder="Full name" /></label><label>Email address<input type="email" name="email" required placeholder="you@example.com" /></label><label>How can we help?<textarea name="message" required placeholder="Tell us a little about your project…" rows={4} /></label><button className="button button-dark" type="submit">{submitted ? "Message ready to send ✓" : "Send an enquiry"} <Arrow /></button>{submitted && <p className="success">Thank you — we’ll be in touch soon.</p>}</form></section>
 
