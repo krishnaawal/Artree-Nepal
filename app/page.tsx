@@ -67,7 +67,6 @@ const works = [
   ["A language carried forward", "Lavkant Chaudhary", "2025", "/images/artworks/lavkant-work.jpg", "Mixed media"],
   ["Mangdem’ma", "Mekh Limbu", "2022", "/images/artworks/mekh-mangdemma.jpg", "Video & textile"],
   ["Herbs Drawings", "ArTree Nepal", "2024", "/images/artworks/herbs-drawings.jpg", "Drawing"],
-  ["Study of History", "Subas Tamang", "2024", "/images/artworks/subas-study.jpg", "Printmaking"],
 ];
 
 function Arrow() { return <span aria-hidden="true">↗</span>; }
