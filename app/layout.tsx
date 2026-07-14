@@ -4,6 +4,7 @@ import "./portfolio.css";
 import "./reference.css";
 import "./full-ui.css";
 import "./about.css";
+import "./about-cleanup.css";
 
 export const metadata: Metadata = {
   title: "ArTree Nepal — Artists in common",

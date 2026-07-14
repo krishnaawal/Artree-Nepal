@@ -1,0 +1,4 @@
+/* Keep the PDF archive clean: no circular/irregular decorative frames or note bubble. */
+.pdf-archive-section .section-note{display:none}
+.pdf-grid figure,.pdf-grid figure:nth-child(3n),.pdf-grid figure:nth-child(4n){border-radius:0;outline:none;transform:none}
+.pdf-grid figure:before,.pdf-grid figure:after{content:none!important;display:none!important}
