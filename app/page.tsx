@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a href="#top" className="brand" aria-label="ArTree Nepal home"><Logo small /><span>ArTree<br /><em>Nepal</em></span></a>
+        <a href="#top" className="brand" aria-label="ArTree Nepal home"><Logo small /></a>
         <button className="menu-button" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close" : "Menu"}</button>
         <nav className={menuOpen ? "nav open" : "nav"}>
           <a href="#work" onClick={() => setMenuOpen(false)}>Archive</a>
@@ -81,7 +81,7 @@ export default function Home() {
 
       <section className="contact-section" id="contact"><div className="contact-heading"><div className="section-label">05 — Say hello</div><h2>Let’s make room<br />for a <i>new story.</i></h2><p>For exhibitions, collaborations, research, or simply to learn more about ArTree Nepal, we’d love to hear from you.</p><div className="contact-details"><a href="mailto:artreenepal@gmail.com">artreenepal@gmail.com</a><a href="tel:+9779861626549">+977 986 162 6549</a><span>Samarpan Marg<br />Tripureshwor, Kathmandu</span></div></div><form className="contact-form" onSubmit={submitForm}><label>Your name<input name="name" required placeholder="Full name" /></label><label>Email address<input type="email" name="email" required placeholder="you@example.com" /></label><label>How can we help?<textarea name="message" required placeholder="Tell us a little about your project…" rows={4} /></label><button className="button button-dark" type="submit">{submitted ? "Message ready to send ✓" : "Send an enquiry"} <Arrow /></button>{submitted && <p className="success">Thank you — we’ll be in touch soon.</p>}</form></section>
 
-      <footer className="site-footer"><a href="#top" className="footer-brand"><Logo /><span>ArTree Nepal<br /><small>Artists in common.</small></span></a><div className="footer-nav"><a href="#work">Archive</a><a href="#artists">Artists</a><a href="/about">About</a><a href="#contact">Contact</a></div><div className="footer-social"><span>Follow the collective</span><div><a href="#contact">Instagram</a><a href="#contact">Facebook</a><a href="#contact">YouTube</a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} ArTree Nepal</span><span>Made with care in Kathmandu</span></div></footer>
+      <footer className="site-footer"><a href="#top" className="footer-brand" aria-label="ArTree Nepal home"><Logo /></a><div className="footer-nav"><a href="#work">Archive</a><a href="#artists">Artists</a><a href="/about">About</a><a href="#contact">Contact</a></div><div className="footer-social"><span>Follow the collective</span><div><a href="#contact">Instagram</a><a href="#contact">Facebook</a><a href="#contact">YouTube</a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} ArTree Nepal</span><span>Made with care in Kathmandu</span></div></footer>
     </main>
   );
 }
