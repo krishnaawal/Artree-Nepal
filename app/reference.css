@@ -1,0 +1,28 @@
+/* Shared collage-led visual system inspired by the supplied ArTree reference. */
+.hero{min-height:calc(100vh - 84px);display:block;position:relative;background:var(--terracotta-dark)}
+.hero-collage{inset:0;right:auto;top:auto;width:100%;height:100%;opacity:1}
+.hero-collage:before{inset:7% 11% 8% 10%;background:rgba(221,167,112,.2);transform:rotate(-1.5deg)}
+.hero-collage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(70,25,17,.72),rgba(70,25,17,.18) 58%,rgba(25,16,12,.35));z-index:1}
+.collage-main{inset:10% 15% 10% 13%;transform:rotate(1deg);box-shadow:20px 26px 55px rgba(32,15,10,.3)}
+.collage-sub{width:22%;height:38%;left:8%;bottom:5%;z-index:3}
+.collage-side{width:21%;height:48%;right:8%;top:7%;z-index:3}
+.collage-note,.collage-stamp{z-index:4}
+.hero-copy{position:absolute;inset:0;width:auto;padding:0 9vw;display:flex;align-items:center;justify-content:center;text-align:center;z-index:5}
+.hero-copy .eyebrow{position:absolute;top:10%;left:9vw}
+.hero h1{max-width:920px;margin:0;font-family:'Playfair Display',serif;font-size:clamp(62px,8.4vw,138px);line-height:.86;letter-spacing:-.07em;text-shadow:0 4px 20px rgba(47,20,14,.22)}
+.hero h1 i{color:#fff4df}.hero-intro{display:none}.hero-actions{position:absolute;bottom:10%;margin:0}.hero-paper{opacity:.24}
+
+.portfolio-hero{display:block;position:relative;min-height:calc(100vh - 90px);background:var(--terracotta-dark);overflow:hidden}
+.portfolio-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(47,19,13,.78),rgba(47,19,13,.27) 60%,rgba(20,18,14,.35));z-index:1}
+.portfolio-hero-copy{position:relative;z-index:2;min-height:calc(100vh - 90px);padding:10vw 9vw;color:var(--paper);justify-content:flex-end;align-items:flex-start}
+.portfolio-hero-copy .eyebrow{color:var(--ochre)}.portfolio-hero h1{font-family:'Playfair Display',serif;font-size:clamp(62px,8.5vw,140px);line-height:.82;letter-spacing:-.075em;max-width:900px;margin:20px 0;color:#fff4df;text-shadow:0 4px 22px rgba(38,15,10,.25)}
+.portfolio-field{color:#f0c68e}.portfolio-lede{color:#f4dfc5;max-width:470px;margin-top:28px}.portfolio-meta{color:#f1d8b2;border-color:rgba(255,238,213,.35);width:min(470px,100%);margin-top:32px}
+.portfolio-portrait{position:absolute;inset:0;min-height:0;background:#5d4034}.portfolio-portrait img{object-fit:cover;filter:saturate(.68) sepia(.24);transform:scale(1.02)}
+.portfolio-intro{background:#f1eadf}.portfolio-intro h2,.portfolio-projects h2,.portfolio-footer h2{font-family:'Playfair Display',serif}
+.portfolio-gallery{background:var(--indigo);padding-top:110px;padding-bottom:120px}.portfolio-image{background:#ccb28f;border:8px solid #f1eadf;box-shadow:12px 18px 30px rgba(5,14,17,.25)}.portfolio-image img{filter:saturate(.8) sepia(.12)}
+.portfolio-projects{background:#f1eadf}.portfolio-project{min-height:480px}.project-cover{border:8px solid #fffaf2;box-shadow:12px 18px 28px rgba(36,25,18,.12)}.project-cover img{filter:saturate(.82) sepia(.1)}.project-copy h3{font-family:'Playfair Display',serif}.portfolio-footer{background:var(--indigo)}
+
+@media(max-width:800px){
+  .hero{min-height:850px}.hero-collage{inset:0;width:100%;height:100%}.hero-copy{width:auto;padding:0 8vw}.hero-copy .eyebrow{top:10%;left:8vw}.hero h1{font-size:clamp(57px,15vw,95px)}.hero-actions{bottom:8%;flex-direction:column;gap:18px;align-items:center}.collage-main{inset:10% 8% 22% 8%}.collage-sub{width:28%;height:28%;left:4%;bottom:11%}.collage-side{width:28%;height:36%;right:4%;top:5%}
+  .portfolio-hero{min-height:calc(100vh - 72px)}.portfolio-hero-copy{min-height:calc(100vh - 72px);padding:10vw 8vw 12vw;justify-content:flex-end}.portfolio-hero h1{font-size:clamp(57px,15vw,95px)}.portfolio-portrait{min-height:0}.portfolio-intro,.portfolio-gallery,.portfolio-projects{padding:90px 8vw}.portfolio-footer{padding:85px 8vw}
+}

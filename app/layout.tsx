@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./portfolio.css";
+import "./reference.css";
 
 export const metadata: Metadata = {
   title: "ArTree Nepal — Artists in common",
