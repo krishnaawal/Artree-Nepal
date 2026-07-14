@@ -23,7 +23,7 @@ export default function AboutPage() {
     <main className="about-page">
       <header className="site-header about-header">
         <a href="/" className="brand" aria-label="ArTree Nepal home"><Image unoptimized className="logo logo-small" src="/images/site/artree-logo.png" alt="ArTree Nepal" width={42} height={42} /><span>ArTree<br /><em>Nepal</em></span></a>
-        <nav className="nav about-nav"><a href="/">Archive</a><a href="/#artists">Artists</a><a href="/#focus">Current Focus</a><a className="active" href="/about">About</a><a href="/#contact">Contact</a></nav>
+        <nav className="nav about-nav"><a href="/">Archive</a><a href="/#artists">Artists</a><a className="active" href="/about">About</a><a href="/#contact">Contact</a></nav>
       </header>
 
       <section className="about-hero"><Image unoptimized src="/images/about/pdf/page-001.jpg" alt="An image from the ArTree Nepal archive" fill priority sizes="100vw" /><div className="about-hero-overlay" /><div className="about-hero-copy"><p className="eyebrow">About ArTree Nepal · Kathmandu</p><h1>A collective for<br /><i>living histories.</i></h1><p>Five artists. Many Indigenous worlds. One shared space for memory, reclamation, and new ways of making.</p></div><span className="about-hero-index">01 / ABOUT</span></section>

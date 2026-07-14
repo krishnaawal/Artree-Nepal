@@ -39,7 +39,6 @@ export default function Home() {
         <nav className={menuOpen ? "nav open" : "nav"}>
           <a href="#work" onClick={() => setMenuOpen(false)}>Archive</a>
           <a href="#artists" onClick={() => setMenuOpen(false)}>Artists</a>
-          <a href="#focus" onClick={() => setMenuOpen(false)}>Current Focus</a>
           <a href="/about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
