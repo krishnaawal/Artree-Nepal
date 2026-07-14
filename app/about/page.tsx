@@ -35,7 +35,7 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <header className="site-header about-header">
-        <a href="/" className="brand" aria-label="ArTree Nepal home"><Image unoptimized className="logo logo-small" src="/images/site/artree-logo.png" alt="ArTree Nepal" width={42} height={42} /></a>
+        <a href="/" className="brand" aria-label="ArTree Nepal home"><Image unoptimized className="logo logo-small" src="/images/site/artree-logo.png" alt="ArTree Nepal" width={42} height={42} /><span>ArTree<br /><em>Nepal</em></span></a>
         <nav className="nav about-nav"><a href="/">Archive</a><a href="/#artists">Artists</a><a className="active" href="/about">About</a><a href="/#contact">Contact</a></nav>
       </header>
 
