@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const pdfArchiveImages = Array.from({ length: 72 }, (_, index) => `/images/about/pdf/page-${String(index).padStart(3, "0")}.jpg`);
-const visiblePdfArchiveImages = pdfArchiveImages.filter((_, index) => ![0, 1, 32, 33].includes(index)).filter((_, index) => ![40, 41].includes(index));
+const excludedPdfArchiveIndexes = new Set([0, 1, 32, 33, 44, 45]);
+const visiblePdfArchiveImages = pdfArchiveImages.filter((_, index) => !excludedPdfArchiveIndexes.has(index));
 const fieldImages = [
   ["Lati Chaudhari", "/images/about/field/Lati Chaudhari_Sukhaura Kot, Dang.jpg"],
   ["Ramkali Chaudhari", "/images/about/field/Ramkali Chaudhari_Harihar gaun, Dang.jpg"],
