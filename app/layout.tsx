@@ -8,6 +8,8 @@ import "./about-cleanup.css";
 import "./about-preview.css";
 import "./logo.css";
 import "./hero-gif.css";
+import "./audio.css";
+import AmbientAudio from "./components/ambient-audio";
 
 export const metadata: Metadata = {
   title: "ArTree Nepal — Artists in common",
@@ -17,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return <html lang="en"><body>{children}<AmbientAudio /></body></html>;
 }
