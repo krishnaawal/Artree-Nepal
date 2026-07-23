@@ -1,8 +1,14 @@
 /* Give the animated Bhasha Andolan banner a clean, legible presentation. */
-.collage-main{inset:13% 12% 16% 12%;background:#080808;border:8px solid #f4eadb;box-shadow:24px 28px 60px rgba(30,12,8,.38);transform:rotate(.6deg)}
+.hero{background:linear-gradient(135deg,#302329 0%,#48272a 48%,#67352b 100%)}
+.hero-collage:before{background:rgba(232,198,156,.12);box-shadow:0 0 100px rgba(17,12,20,.22)}
+.hero-collage:after{background:linear-gradient(90deg,rgba(39,24,29,.55),rgba(55,27,28,.08) 58%,rgba(23,18,24,.28))}
+.hero-paper{opacity:.18;background-image:radial-gradient(rgba(255,232,197,.48) .7px,transparent .8px),linear-gradient(120deg,transparent 0 45%,rgba(20,12,18,.18) 45% 46%,transparent 46% 100%)}
+.collage-main{inset:13% 12% 16% 12%;background:#080808;border:8px solid #eee1cf;box-shadow:24px 28px 60px rgba(25,13,20,.48);transform:rotate(.6deg)}
 .collage-main img{object-fit:contain;background:#080808;filter:none}
-.collage-sub img{object-fit:cover;filter:saturate(.9) contrast(.98)}
-.collage-side img{object-fit:contain;background:#fbf9f4;filter:none}
+.collage-sub{border-color:#eee1cf;background:#d7b894;box-shadow:18px 24px 42px rgba(25,13,20,.42)}
+.collage-sub img{object-fit:cover;filter:saturate(1.08) contrast(1.02)}
+.collage-side{border-color:#eee1cf;background:#eee1cf;box-shadow:18px 24px 42px rgba(25,13,20,.42)}
+.collage-side img{object-fit:contain;background:#eee1cf;filter:saturate(1.05) contrast(1.02);mix-blend-mode:multiply}
 .hero h1{max-width:820px;font-size:clamp(58px,7.6vw,122px)}
 .hero-copy{mix-blend-mode:normal}
 @media(max-width:800px){.collage-main{inset:13% 6% 23% 6%;border-width:5px}.hero h1{font-size:clamp(54px,14vw,88px)}}
