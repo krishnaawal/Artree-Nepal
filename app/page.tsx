@@ -47,7 +47,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-paper" />
         <div className="hero-collage" aria-label="A collage of works from the ArTree Nepal archive">
-          <div className="collage-piece collage-main"><Image unoptimized src="/images/site/silam-sakma.webp" alt="Silam Sakma textile artwork from the ArTree Nepal archive" fill priority sizes="(max-width: 800px) 84vw, 48vw" /></div>
+          <div className="collage-piece collage-main"><Image unoptimized src="/images/site/bhasha-andolan.gif" alt="Bhasha Andolan animated banner from the ArTree Nepal archive" fill priority sizes="(max-width: 800px) 92vw, 70vw" /></div>
           <div className="collage-piece collage-sub"><Image unoptimized src="/images/portfolio/subas/study-history.jpg" alt="Study of History by Subas Tamang" fill sizes="(max-width: 800px) 48vw, 22vw" /></div>
           <div className="collage-piece collage-side"><Image unoptimized src="/images/site/samaniya-rana.jpg" alt="Samaniya Rana from the ArTree Nepal archive" fill sizes="(max-width: 800px) 30vw, 16vw" /></div>
           <div className="collage-note">From the archive<br /><span>Kathmandu · Nepal</span></div>

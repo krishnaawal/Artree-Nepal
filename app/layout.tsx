@@ -7,6 +7,7 @@ import "./about.css";
 import "./about-cleanup.css";
 import "./about-preview.css";
 import "./logo.css";
+import "./hero-gif.css";
 
 export const metadata: Metadata = {
   title: "ArTree Nepal — Artists in common",
