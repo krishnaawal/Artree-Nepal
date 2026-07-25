@@ -67,6 +67,13 @@ function ArchiveOrbit() {
     return () => { document.removeEventListener("keydown", handleKeyDown); document.body.style.overflow = ""; };
   }, [previewOpen]);
 
+  useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 800px)");
+    if (!mobile.matches) return;
+    const slideshow = window.setInterval(() => setActiveIndex((current) => (current + 1) % galleryItems.length), 3200);
+    return () => window.clearInterval(slideshow);
+  }, []);
+
   return (
     <div className="archive-gallery" aria-label="Rotating gallery of works from the ArTree Nepal archive">
       <div className="archive-orbit">
