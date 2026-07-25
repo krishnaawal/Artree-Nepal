@@ -18,6 +18,21 @@ body {
   .site-header .logo-small,
   .portfolio-header .logo-small { width: 44px !important; height: 44px !important; }
   .nav { top: 64px !important; }
+  .site-header .nav.open,
+  .portfolio-header .nav.open {
+    background: rgba(15, 13, 16, .68) !important;
+    border-bottom: 1px solid rgba(255, 248, 233, .22) !important;
+    box-shadow: 0 18px 34px rgba(0, 0, 0, .2) !important;
+    backdrop-filter: blur(14px) !important;
+  }
+  .site-header .nav.open a,
+  .portfolio-header .nav.open a {
+    color: #fff8e9 !important;
+  }
+  .site-header .nav.open a:hover,
+  .portfolio-header .nav.open a:hover {
+    color: #e8b875 !important;
+  }
   .sound-dock { top: 78px !important; right: 4vw !important; }
 
   .hero {
