@@ -77,7 +77,7 @@ function ArchiveOrbit() {
               className={`archive-orbit-item ${activeIndex === index ? "is-active" : ""}`}
               key={image}
               type="button"
-              style={{ left: archiveCardPositions[index][0], top: archiveCardPositions[index][1], "--angle": `${(index / galleryItems.length) * 360}deg`, "--tilt": `${archiveCardTilts[index]}deg`, "--offset": `${archiveCardOffsets[index]}px`, "--ratio": archiveCardRatios[index], zIndex: 2 + (index % 5) } as CSSProperties}
+              style={{ left: archiveCardPositions[index][0], top: archiveCardPositions[index][1], "--angle": `${(index / galleryItems.length) * 360}deg`, "--tilt": `${archiveCardTilts[index]}deg`, "--offset": `${archiveCardOffsets[index]}px`, "--ratio": archiveCardRatios[index], "--delay": `${-(index * (78 / galleryItems.length))}s`, zIndex: 2 + (index % 5) } as CSSProperties}
               aria-label={`Preview ${title} by ${artist}`}
               onMouseEnter={() => setActiveIndex(index)}
               onFocus={() => setActiveIndex(index)}
