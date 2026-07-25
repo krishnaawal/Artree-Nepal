@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CSSProperties, FormEvent, useState } from "react";
+import { CSSProperties, FormEvent, useEffect, useState } from "react";
 
 const artists = [
   { slug: "lavkant-chaudhary", name: "Lavkant Chaudhary", origin: "Tharu", field: "Painting · Drawing · Installation", bio: "A Tharu artist bringing lived memory, community knowledge, and the politics of place into contemporary form.", image: "/images/artists/lavkant-chaudhary.jpg" },
@@ -46,12 +46,21 @@ function Logo({ small = false }: { small?: boolean }) {
 
 function ArchiveOrbit() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [previewOpen, setPreviewOpen] = useState(false);
   const active = galleryItems[activeIndex];
+
+  useEffect(() => {
+    if (!previewOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") setPreviewOpen(false); };
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", handleKeyDown); document.body.style.overflow = ""; };
+  }, [previewOpen]);
 
   return (
     <div className="archive-gallery" aria-label="Rotating gallery of works from the ArTree Nepal archive">
-      <div className="archive-orbit" aria-hidden="true">
-        <div className="archive-orbit-ring" />
+      <div className="archive-orbit">
+        <div className="archive-orbit-ring" aria-hidden="true" />
         {galleryItems.map(([title, artist, year, image], index) => (
           <button
             className={`archive-orbit-item ${activeIndex === index ? "is-active" : ""}`}
@@ -61,17 +70,18 @@ function ArchiveOrbit() {
             aria-label={`Preview ${title} by ${artist}`}
             onMouseEnter={() => setActiveIndex(index)}
             onFocus={() => setActiveIndex(index)}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => { setActiveIndex(index); setPreviewOpen(true); }}
           >
-            <span className="archive-orbit-image"><Image src={`/images/gallery/${image}`} alt="" fill loading="lazy" sizes="72px" /></span>
+            <span className="archive-orbit-image"><Image src={`/images/gallery/${image}`} alt="" fill loading="lazy" sizes="(max-width: 800px) 90px, 120px" /></span>
           </button>
         ))}
       </div>
-      <div className="archive-preview">
-        <div className="archive-preview-image"><Image src={`/images/gallery/${active[3]}`} alt={`${active[0]} by ${active[1]}`} fill priority sizes="(max-width: 800px) 55vw, 260px" /></div>
+      <div className="archive-preview" aria-live="polite">
+        <div className="archive-preview-image"><Image src={`/images/gallery/${active[3]}`} alt={`${active[0]} by ${active[1]}`} fill priority sizes="(max-width: 800px) 64vw, 420px" /></div>
         <div className="archive-preview-copy"><span>{String(activeIndex + 1).padStart(2, "0")} / {String(galleryItems.length).padStart(2, "0")}</span><strong>{active[0]}</strong><small>{active[1]} · {active[2]}</small></div>
       </div>
-      <div className="archive-gallery-note"><span>Move through the archive</span><small>Hover or focus a circle to preview</small></div>
+      <div className="archive-gallery-note"><span>Move through the archive</span><small>Hover to enlarge · click to open full view</small></div>
+      {previewOpen && <div className="archive-lightbox" role="dialog" aria-modal="true" aria-label={`Full preview of ${active[0]}`} onClick={() => setPreviewOpen(false)}><div className="archive-lightbox-panel" onClick={(event) => event.stopPropagation()}><button className="archive-lightbox-close" type="button" aria-label="Close preview" onClick={() => setPreviewOpen(false)}>×</button><div className="archive-lightbox-image"><Image src={`/images/gallery/${active[3]}`} alt={`${active[0]} by ${active[1]}`} fill priority sizes="90vw" /></div><div className="archive-lightbox-meta"><span>{active[1]} · {active[2]}</span><strong>{active[0]}</strong></div></div></div>}
     </div>
   );
 }
