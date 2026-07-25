@@ -68,7 +68,7 @@ function ArchiveOrbit() {
   }, [previewOpen]);
 
   useEffect(() => {
-    const slideshow = window.setInterval(() => { if (window.innerWidth <= 800) setActiveIndex((current) => (current + 1) % galleryItems.length); }, 3200);
+    const slideshow = window.setInterval(() => { if (window.innerWidth <= 800) setActiveIndex((current) => (current + 1) % galleryItems.length); }, 2000);
     return () => window.clearInterval(slideshow);
   }, []);
 
