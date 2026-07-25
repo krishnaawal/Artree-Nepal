@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useState } from "react";
+import { CSSProperties, FormEvent, useState } from "react";
 
 const artists = [
   { slug: "lavkant-chaudhary", name: "Lavkant Chaudhary", origin: "Tharu", field: "Painting · Drawing · Installation", bio: "A Tharu artist bringing lived memory, community knowledge, and the politics of place into contemporary form.", image: "/images/artists/lavkant-chaudhary.jpg" },
@@ -11,19 +11,69 @@ const artists = [
   { slug: "subas-tamang", name: "Subas Tamang", origin: "Tamang", field: "Carving · Printmaking · Multimedia", bio: "A Tamang artist using inherited carving skills, printmaking, and new technologies to archive undocumented histories.", image: "/images/artists/subas-tamang.jpg" },
 ];
 
-const works = [
-  { title: "Not Less Expensive Than Gold", artist: "ArTree Nepal", year: "2016–20", type: "Collective project · Moving image", image: "/images/projects/not-less-expensive.jpg", slug: "sheelasha-rajbhandari" },
-  { title: "Study of History", artist: "Subas Tamang", year: "2024", type: "Printmaking", image: "/images/portfolio/subas/study-history.jpg", slug: "subas-tamang" },
-  { title: "Mangdem’ma", artist: "Mekh Limbu", year: "2022", type: "Video & textile", image: "/images/artworks/mekh-mangdemma.jpg", slug: "mekh-limbu" },
-  { title: "A language carried forward", artist: "Lavkant Chaudhary", year: "2025", type: "Mixed media", image: "/images/artworks/lavkant-work.jpg", slug: "lavkant-chaudhary" },
-  { title: "Herbs Drawings", artist: "ArTree Nepal", year: "2024", type: "Drawing & installation", image: "/images/artworks/herbs-drawings.jpg", slug: "sheelasha-rajbhandari" },
-  { title: "Chotlung: traversing spirits", artist: "Mekh Limbu", year: "2025", type: "Moving image", image: "/images/portfolio/mekh/chotlung-01.jpg", slug: "mekh-limbu" },
-];
+const galleryItems = [
+  ["Samsama", "Mekh Limbu", "2025", "gallery-01.jpg"],
+  ["Study of History II", "Subas Tamang", "2024", "gallery-02.jpg"],
+  ["Archive fragment", "ArTree Nepal", "2024", "gallery-03.jpg"],
+  ["Field note", "Lavkant Chaudhary", "2025", "gallery-04.jpg"],
+  ["Living memory", "ArTree Nepal", "2024", "gallery-05.jpg"],
+  ["Moving image still", "Mekh Limbu", "2022", "gallery-06.webp"],
+  ["A language carried forward", "Lavkant Chaudhary", "2025", "gallery-07.jpg"],
+  ["Ramkali Chaudhari", "ArTree Nepal", "2024", "gallery-08.jpg"],
+  ["Document / gesture", "ArTree Nepal", "2024", "gallery-09.jpg"],
+  ["Untitled study", "ArTree Nepal", "2024", "gallery-10.jpg"],
+  ["Not Less Expensive Than Gold", "ArTree Nepal", "2016–20", "gallery-11.jpg"],
+  ["Silent Portraits from Doha", "Mekh Limbu", "2017", "gallery-12.jpg"],
+  ["Archive study", "ArTree Nepal", "2024", "gallery-13.jpg"],
+  ["Sukaura Kot", "ArTree Nepal", "2024", "gallery-14.jpg"],
+  ["Maoist archive", "ArTree Nepal", "2007", "gallery-15.jpg"],
+  ["Mangdem’ma", "Mekh Limbu", "2022", "gallery-16.webp"],
+  ["Study of History IV", "Subas Tamang", "2024", "gallery-17.jpg"],
+  ["Study of History V", "Subas Tamang", "2024", "gallery-18.jpg"],
+  ["Archive fragment", "ArTree Nepal", "2024", "gallery-19.jpg"],
+  ["Not Less Expensive Than Gold II", "ArTree Nepal", "2016–20", "gallery-20.jpg"],
+  ["Field recording", "ArTree Nepal", "2024", "gallery-21.webp"],
+  ["Printed matter", "ArTree Nepal", "2024", "gallery-22.jpg"],
+  ["Not Less Expensive Than Gold III", "ArTree Nepal", "2016–20", "gallery-23.jpg"],
+  ["Bhukhali Devi Tharuni", "ArTree Nepal", "2024", "gallery-24.jpg"],
+] as const;
 
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 
 function Logo({ small = false }: { small?: boolean }) {
   return <Image unoptimized className={small ? "logo logo-small" : "logo"} src="/images/site/artree-logo.png" alt="ArTree Nepal" width={small ? 42 : 62} height={small ? 42 : 62} />;
+}
+
+function ArchiveOrbit() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const active = galleryItems[activeIndex];
+
+  return (
+    <div className="archive-gallery" aria-label="Rotating gallery of works from the ArTree Nepal archive">
+      <div className="archive-orbit" aria-hidden="true">
+        <div className="archive-orbit-ring" />
+        {galleryItems.map(([title, artist, year, image], index) => (
+          <button
+            className={`archive-orbit-item ${activeIndex === index ? "is-active" : ""}`}
+            key={image}
+            type="button"
+            style={{ "--angle": `${(index / galleryItems.length) * 360}deg` } as CSSProperties}
+            aria-label={`Preview ${title} by ${artist}`}
+            onMouseEnter={() => setActiveIndex(index)}
+            onFocus={() => setActiveIndex(index)}
+            onClick={() => setActiveIndex(index)}
+          >
+            <span className="archive-orbit-image"><Image src={`/images/gallery/${image}`} alt="" fill loading="lazy" sizes="72px" /></span>
+          </button>
+        ))}
+      </div>
+      <div className="archive-preview">
+        <div className="archive-preview-image"><Image src={`/images/gallery/${active[3]}`} alt={`${active[0]} by ${active[1]}`} fill priority sizes="(max-width: 800px) 55vw, 260px" /></div>
+        <div className="archive-preview-copy"><span>{String(activeIndex + 1).padStart(2, "0")} / {String(galleryItems.length).padStart(2, "0")}</span><strong>{active[0]}</strong><small>{active[1]} · {active[2]}</small></div>
+      </div>
+      <div className="archive-gallery-note"><span>Move through the archive</span><small>Hover or focus a circle to preview</small></div>
+    </div>
+  );
 }
 
 export default function Home() {
@@ -67,9 +117,9 @@ export default function Home() {
         <div className="marquee"><span>INDIGENEITY</span><span>MEMORY</span><span>RECLAMATION</span><span>COLLECTIVE CARE</span></div>
       </section>
 
-      <section className="work-section" id="work">
-        <div className="section-top"><div><div className="section-label">02 — From the archive</div><h2>Works that <i>remember.</i></h2></div><p className="section-note">Paintings, prints, moving images, and installations held together by lived histories.</p></div>
-        <div className="work-grid">{works.map((work, index) => <article className={`work-card work-${index + 1}`} key={work.title}><a href={`/artists/${work.slug}`} aria-label={`Open ${work.title} by ${work.artist}`}><div className="work-image"><Image src={work.image} alt={`${work.title} by ${work.artist}`} fill loading={index > 1 ? "lazy" : undefined} sizes="(max-width: 700px) 100vw, 33vw" /><span className="work-hover">View artist <Arrow /></span></div><div className="work-meta"><span>{work.artist}</span><span>{work.year}</span></div><h3>{work.title}</h3><p>{work.type}</p></a></article>)}</div>
+      <section className="work-section archive-section" id="work">
+        <div className="archive-section-heading"><div className="section-label">02 — From the archive</div><p>Twenty-four fragments from the collective’s living archive.</p></div>
+        <ArchiveOrbit />
       </section>
 
       <section className="artists-section" id="artists">

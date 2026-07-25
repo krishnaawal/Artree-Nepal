@@ -9,6 +9,7 @@ import "./about-preview.css";
 import "./logo.css";
 import "./hero-gif.css";
 import "./audio.css";
+import "./archive-gallery.css";
 import AmbientAudio from "./components/ambient-audio";
 
 export const metadata: Metadata = {
