@@ -1,0 +1,148 @@
+/* Final responsive rhythm pass. Kept separate so desktop compositions remain untouched. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 800px) {
+  body { min-width: 0; }
+
+  .site-header,
+  .portfolio-header {
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 8px 5vw !important;
+  }
+
+  .site-header .logo-small,
+  .portfolio-header .logo-small { width: 44px !important; height: 44px !important; }
+  .nav { top: 64px !important; }
+  .sound-dock { top: 78px !important; right: 4vw !important; }
+
+  .hero {
+    min-height: 560px !important;
+    height: 560px !important;
+  }
+  .hero-copy {
+    padding: 0 6vw !important;
+    transform: translateY(-10px) !important;
+  }
+  .hero-copy .eyebrow { top: 9% !important; left: 6vw !important; font-size: 9px !important; }
+  .hero h1 {
+    max-width: 94vw;
+    font-size: clamp(47px, 12.4vw, 72px) !important;
+    line-height: .88 !important;
+  }
+  .hero-actions { bottom: 7% !important; gap: 10px !important; }
+
+  .manifesto,
+  .work-section,
+  .artists-section,
+  .feature,
+  .contact-section,
+  .portfolio-intro,
+  .portfolio-gallery,
+  .portfolio-projects,
+  .about-story,
+  .member-section,
+  .fieldwork-section,
+  .pdf-archive-section,
+  .about-contact {
+    padding-left: 6vw !important;
+    padding-right: 6vw !important;
+  }
+
+  .manifesto,
+  .work-section,
+  .artists-section,
+  .portfolio-intro,
+  .portfolio-gallery,
+  .portfolio-projects,
+  .about-story,
+  .member-section,
+  .fieldwork-section,
+  .pdf-archive-section,
+  .about-contact {
+    padding-top: 58px !important;
+    padding-bottom: 64px !important;
+  }
+
+  .section-top,
+  .portfolio-section-top { margin-bottom: 30px !important; }
+  .section-top h2,
+  .manifesto h2,
+  .portfolio-section-top h2 { font-size: clamp(42px, 11vw, 72px) !important; }
+  .manifesto-grid,
+  .about-story-grid,
+  .portfolio-intro-grid { gap: 28px !important; margin-top: 32px !important; }
+
+  .work-card,
+  .work-card:nth-child(even),
+  .portfolio-image-card,
+  .portfolio-image-card:nth-child(n) { margin-bottom: 30px !important; }
+  .artists-grid { gap: 24px 12px !important; }
+  .artist-image { height: 48vw !important; }
+
+  .feature { padding-top: 12px !important; padding-bottom: 12px !important; }
+  .feature-copy { padding: 52px 6vw 58px !important; }
+  .contact-section { gap: 42px !important; padding-top: 64px !important; padding-bottom: 70px !important; }
+  .contact-heading > p { margin: 24px 0 !important; }
+  .contact-form { padding: 22px !important; }
+  .site-footer { padding: 46px 6vw 18px !important; gap: 28px 18px !important; }
+  .footer-bottom { margin-top: 10px !important; }
+
+  /* About page */
+  .about-hero { height: 620px !important; min-height: 0 !important; }
+  .about-hero-copy { padding: 8vw 6vw !important; }
+  .about-hero-copy h1 { font-size: clamp(52px, 14vw, 86px) !important; margin: 18px 0 !important; }
+  .about-pullquote { margin-top: 48px !important; }
+  .member-grid { margin-top: 34px !important; }
+  .member-card { min-height: 190px !important; }
+  .member-card h3 { margin-top: 26px !important; }
+  .values-copy { padding: 52px 6vw 60px !important; }
+  .fieldwork-grid,
+  .pdf-grid { margin-top: 32px !important; }
+  .about-contact { gap: 16px !important; }
+
+  /* Artist portfolio pages */
+  .portfolio-hero-copy { padding: 56px 6vw 48px !important; }
+  .portfolio-hero h1 { font-size: clamp(52px, 14vw, 86px) !important; margin: 24px 0 14px !important; }
+  .portfolio-lede { margin-top: 24px !important; }
+  .portfolio-meta { margin-top: 34px !important; }
+  .portfolio-portrait { min-height: 65vw !important; }
+  .portfolio-projects h2 { margin-bottom: 38px !important; }
+  .project-cover { margin-top: 14px !important; }
+  .project-copy { padding: 26px 0 34px !important; }
+  .portfolio-footer { padding: 64px 6vw !important; gap: 34px !important; }
+
+  /* Archive keeps its mobile slideshow, with a shorter, denser frame. */
+  .archive-section { padding: 42px 6vw 48px !important; }
+  .archive-section-heading p { margin-top: 14px !important; }
+  .archive-gallery { margin-top: 18px !important; }
+  .archive-preview { width: min(88vw, 460px) !important; }
+  .archive-preview-image { border-width: 7px !important; }
+  .archive-preview-copy { margin-top: 10px !important; }
+  .archive-preview-copy strong { font-size: 19px !important; }
+  .archive-lightbox { padding: 5vw !important; }
+  .archive-lightbox-image { height: 62vh !important; }
+}
+
+@media (max-width: 420px) {
+  .hero { min-height: 530px !important; height: 530px !important; }
+  .hero h1 { font-size: clamp(43px, 12vw, 60px) !important; }
+  .hero-actions { bottom: 6% !important; }
+  .manifesto,
+  .work-section,
+  .artists-section,
+  .portfolio-intro,
+  .portfolio-gallery,
+  .portfolio-projects,
+  .about-story,
+  .member-section,
+  .fieldwork-section,
+  .pdf-archive-section,
+  .about-contact { padding-top: 48px !important; padding-bottom: 54px !important; }
+  .about-hero { height: 560px !important; }
+  .site-footer { padding-top: 38px !important; }
+}
