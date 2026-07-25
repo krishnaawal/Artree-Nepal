@@ -16,4 +16,4 @@
 .hero-copy{mix-blend-mode:normal;align-items:center;justify-content:center;padding-top:0}
 .hero-copy .eyebrow{top:17%;left:9vw;color:#e8b875}
 .hero-actions{bottom:12%;z-index:5}.hero-actions .button-light{background:#f4eadb;color:#1c211c}.light-link{color:#fff8e9}
-@media(max-width:800px){.site-header{height:72px;background:rgba(15,13,16,.35)}.collage-main{inset:0}.collage-sub{width:30%;height:18%;left:5%;bottom:6%;border-width:5px}.collage-side{width:28%;height:18%;right:5%;bottom:6%;border-width:5px}.collage-note{left:5%;bottom:27%;font-size:9px}.collage-stamp{right:5%;bottom:27%;font-size:16px}.hero{min-height:850px}.hero h1{font-size:clamp(54px,14vw,88px)}.hero-copy{padding:0 8vw}.hero-copy .eyebrow{top:14%;left:8vw}.hero-actions{bottom:27%;flex-direction:column;gap:16px}}
+@media(max-width:800px){.site-header{height:72px;background:rgba(15,13,16,.35)}.collage-main{inset:0}.collage-sub,.collage-side,.collage-note,.collage-stamp{display:none}.hero{min-height:680px}.hero h1{font-size:clamp(54px,14vw,88px)}.hero-copy{padding:0 8vw}.hero-copy .eyebrow{top:14%;left:8vw}.hero-actions{bottom:13%;flex-direction:column;gap:16px}}

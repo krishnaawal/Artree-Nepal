@@ -68,9 +68,7 @@ function ArchiveOrbit() {
   }, [previewOpen]);
 
   useEffect(() => {
-    const mobile = window.matchMedia("(max-width: 800px)");
-    if (!mobile.matches) return;
-    const slideshow = window.setInterval(() => setActiveIndex((current) => (current + 1) % galleryItems.length), 3200);
+    const slideshow = window.setInterval(() => { if (window.innerWidth <= 800) setActiveIndex((current) => (current + 1) % galleryItems.length); }, 3200);
     return () => window.clearInterval(slideshow);
   }, []);
 
