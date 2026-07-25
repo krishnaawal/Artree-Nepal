@@ -38,6 +38,9 @@ const galleryItems = [
   ["Bhukhali Devi Tharuni", "ArTree Nepal", "2024", "gallery-24.jpg"],
 ] as const;
 
+const archiveCardTilts = [-7, 4, -3, 8, -5, 6, -8, 3, 7, -4, 5, -6, 2, -9, 4, -3, 8, -5, 6, -7, 3, -4, 7, -2];
+const archiveCardOffsets = [6, -8, 3, -11, 5, -4, 9, -6, 2, -10, 7, -3, 11, -5, 4, -9, 6, -2, 8, -7, 3, -4, 10, -6];
+
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 
 function Logo({ small = false }: { small?: boolean }) {
@@ -66,7 +69,7 @@ function ArchiveOrbit() {
             className={`archive-orbit-item ${activeIndex === index ? "is-active" : ""}`}
             key={image}
             type="button"
-            style={{ "--angle": `${(index / galleryItems.length) * 360}deg` } as CSSProperties}
+            style={{ "--angle": `${(index / galleryItems.length) * 360}deg`, "--tilt": `${archiveCardTilts[index]}deg`, "--offset": `${archiveCardOffsets[index]}px`, zIndex: 2 + (index % 5) } as CSSProperties}
             aria-label={`Preview ${title} by ${artist}`}
             onMouseEnter={() => setActiveIndex(index)}
             onFocus={() => setActiveIndex(index)}
