@@ -41,6 +41,12 @@ const galleryItems = [
 const archiveCardTilts = [-7, 4, -3, 8, -5, 6, -8, 3, 7, -4, 5, -6, 2, -9, 4, -3, 8, -5, 6, -7, 3, -4, 7, -2];
 const archiveCardOffsets = [6, -8, 3, -11, 5, -4, 9, -6, 2, -10, 7, -3, 11, -5, 4, -9, 6, -2, 8, -7, 3, -4, 10, -6];
 const archiveCardRatios = ["4 / 3", "3 / 4", "1 / 1", "5 / 4", "4 / 3", "3 / 4", "16 / 10", "1 / 1", "4 / 3", "3 / 4", "5 / 4", "4 / 3", "1 / 1", "3 / 4", "4 / 3", "16 / 10", "5 / 4", "3 / 4", "1 / 1", "4 / 3", "3 / 4", "5 / 4", "4 / 3", "1 / 1"];
+const archiveCardPositions = [
+  ["8%", "5%"], ["24%", "5%"], ["40%", "5%"], ["56%", "5%"], ["72%", "5%"], ["88%", "5%"],
+  ["95%", "18%"], ["95%", "32%"], ["95%", "46%"], ["95%", "60%"], ["95%", "74%"], ["95%", "88%"],
+  ["88%", "95%"], ["72%", "95%"], ["56%", "95%"], ["40%", "95%"], ["24%", "95%"], ["8%", "95%"],
+  ["5%", "88%"], ["5%", "74%"], ["5%", "60%"], ["5%", "46%"], ["5%", "32%"], ["5%", "18%"],
+] as const;
 
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 
@@ -70,7 +76,7 @@ function ArchiveOrbit() {
             className={`archive-orbit-item ${activeIndex === index ? "is-active" : ""}`}
             key={image}
             type="button"
-            style={{ "--angle": `${(index / galleryItems.length) * 360}deg`, "--tilt": `${archiveCardTilts[index]}deg`, "--offset": `${archiveCardOffsets[index]}px`, "--ratio": archiveCardRatios[index], zIndex: 2 + (index % 5) } as CSSProperties}
+            style={{ left: archiveCardPositions[index][0], top: archiveCardPositions[index][1], "--angle": `${(index / galleryItems.length) * 360}deg`, "--tilt": `${archiveCardTilts[index]}deg`, "--offset": `${archiveCardOffsets[index]}px`, "--ratio": archiveCardRatios[index], zIndex: 2 + (index % 5) } as CSSProperties}
             aria-label={`Preview ${title} by ${artist}`}
             onMouseEnter={() => setActiveIndex(index)}
             onFocus={() => setActiveIndex(index)}
