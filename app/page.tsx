@@ -71,23 +71,25 @@ function ArchiveOrbit() {
     <div className="archive-gallery" aria-label="Rotating gallery of works from the ArTree Nepal archive">
       <div className="archive-orbit">
         <div className="archive-orbit-ring" aria-hidden="true" />
-        {galleryItems.map(([title, artist, year, image], index) => (
-          <button
-            className={`archive-orbit-item ${activeIndex === index ? "is-active" : ""}`}
-            key={image}
-            type="button"
-            style={{ left: archiveCardPositions[index][0], top: archiveCardPositions[index][1], "--angle": `${(index / galleryItems.length) * 360}deg`, "--tilt": `${archiveCardTilts[index]}deg`, "--offset": `${archiveCardOffsets[index]}px`, "--ratio": archiveCardRatios[index], zIndex: 2 + (index % 5) } as CSSProperties}
-            aria-label={`Preview ${title} by ${artist}`}
-            onMouseEnter={() => setActiveIndex(index)}
-            onFocus={() => setActiveIndex(index)}
-            onClick={() => { setActiveIndex(index); setPreviewOpen(true); }}
-          >
-            <span className="archive-orbit-image"><Image src={`/images/gallery/${image}`} alt="" fill loading="lazy" sizes="(max-width: 800px) 90px, 120px" /></span>
-          </button>
-        ))}
+        <div className="archive-orbit-track">
+          {galleryItems.map(([title, artist, year, image], index) => (
+            <button
+              className={`archive-orbit-item ${activeIndex === index ? "is-active" : ""}`}
+              key={image}
+              type="button"
+              style={{ left: archiveCardPositions[index][0], top: archiveCardPositions[index][1], "--angle": `${(index / galleryItems.length) * 360}deg`, "--tilt": `${archiveCardTilts[index]}deg`, "--offset": `${archiveCardOffsets[index]}px`, "--ratio": archiveCardRatios[index], zIndex: 2 + (index % 5) } as CSSProperties}
+              aria-label={`Preview ${title} by ${artist}`}
+              onMouseEnter={() => setActiveIndex(index)}
+              onFocus={() => setActiveIndex(index)}
+              onClick={() => { setActiveIndex(index); setPreviewOpen(true); }}
+            >
+              <span className="archive-orbit-image"><Image src={`/images/gallery/${image}`} alt="" fill loading="lazy" sizes="(max-width: 800px) 90px, 120px" /></span>
+            </button>
+          ))}
+        </div>
       </div>
       <div className="archive-preview" aria-live="polite">
-        <div className="archive-preview-image"><Image src={`/images/gallery/${active[3]}`} alt={`${active[0]} by ${active[1]}`} fill priority sizes="(max-width: 800px) 64vw, 420px" /></div>
+        <div className="archive-preview-image"><Image unoptimized src={`/images/gallery/${active[3]}`} alt={`${active[0]} by ${active[1]}`} fill priority sizes="(max-width: 800px) 64vw, 420px" /></div>
         <div className="archive-preview-copy"><span>{String(activeIndex + 1).padStart(2, "0")} / {String(galleryItems.length).padStart(2, "0")}</span><strong>{active[0]}</strong><small>{active[1]} · {active[2]}</small></div>
       </div>
       <div className="archive-gallery-note"><span>Move through the archive</span><small>Hover to enlarge · click to open full view</small></div>
