@@ -51,7 +51,7 @@ const archiveCardPositions = [
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 
 function Logo({ small = false }: { small?: boolean }) {
-  return <Image unoptimized className={small ? "logo logo-small" : "logo"} src="/images/site/artree-logo.png" alt="ArTree Nepal" width={small ? 42 : 62} height={small ? 42 : 62} />;
+  return <Image className={small ? "logo logo-small" : "logo"} src="/images/site/artree-logo.png" alt="ArTree Nepal" width={small ? 42 : 62} height={small ? 42 : 62} />;
 }
 
 function ArchiveOrbit() {
@@ -94,7 +94,7 @@ function ArchiveOrbit() {
         </div>
       </div>
       <div className="archive-preview" aria-live="polite">
-        <div className="archive-preview-image"><Image unoptimized src={`/images/gallery/${active[3]}`} alt={`${active[0]} by ${active[1]}`} fill priority sizes="(max-width: 800px) 64vw, 420px" /></div>
+        <div className="archive-preview-image"><Image src={`/images/gallery/${active[3]}`} alt={`${active[0]} by ${active[1]}`} fill priority sizes="(max-width: 800px) 64vw, 420px" /></div>
         <div className="archive-preview-copy"><span>{String(activeIndex + 1).padStart(2, "0")} / {String(galleryItems.length).padStart(2, "0")}</span><strong>{active[0]}</strong><small>{active[1]} · {active[2]}</small></div>
       </div>
       <div className="archive-gallery-note"><span>Move through the archive</span><small>Hover to enlarge · click to open full view</small></div>
@@ -124,7 +124,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-paper" />
         <div className="hero-collage" aria-label="A collage of works from the ArTree Nepal archive">
-          <div className="collage-piece collage-main"><Image unoptimized src="/images/site/bhasha-andolan.gif" alt="Bhasha Andolan animated banner from the ArTree Nepal archive" fill priority sizes="(max-width: 800px) 92vw, 70vw" /></div>
+          <div className="collage-piece collage-main"><video autoPlay muted loop playsInline preload="metadata" poster="/images/site/bhasha-andolan-poster.jpg" aria-label="Bhasha Andolan animated banner from the ArTree Nepal archive"><source src="/images/site/bhasha-andolan.webm" type="video/webm" /><img src="/images/site/bhasha-andolan-poster.jpg" alt="Bhasha Andolan banner from the ArTree Nepal archive" /></video></div>
           <div className="collage-piece collage-sub"><Image src="/images/site/screenshot-20250224-164040.jpg" alt="Archived performance image from ArTree Nepal" fill loading="lazy" sizes="(max-width: 800px) 48vw, 22vw" /></div>
           <div className="collage-piece collage-side"><Image src="/images/site/silam-sakma.webp" alt="Silam Sakma textile work from the ArTree Nepal archive" fill loading="lazy" sizes="(max-width: 800px) 30vw, 16vw" /></div>
           <div className="collage-note">From the archive<br /><span>Kathmandu · Nepal</span></div>

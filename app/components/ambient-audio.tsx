@@ -43,7 +43,7 @@ export default function AmbientAudio() {
 
   return (
     <div className={`sound-dock ${playing ? "is-playing" : "is-muted"}`}>
-      <audio ref={audioRef} src="/audio/language-protest.wav" loop preload="auto" aria-hidden="true" />
+      <audio ref={audioRef} src="/audio/language-protest.mp3" loop preload="none" aria-hidden="true" />
       <button type="button" className="sound-toggle" onClick={toggleAudio} aria-label={playing ? "Mute language protest sound" : "Play language protest sound"}>
         <span className="sound-orbit orbit-one" />
         <span className="sound-orbit orbit-two" />
